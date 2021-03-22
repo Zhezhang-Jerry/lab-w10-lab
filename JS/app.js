@@ -1,23 +1,19 @@
-const todoList = {
-    todo1: "clone repo for starter code", status1: "complete",
-    todo2: "add css and js to index", status2: "complete",
-    todo3: "finish the app.js", status3: "started",
-    todo4: "finish the lab", status4: "started"
-}
-const todoArr = []
-const completedTodos = {}
+const todoList = [
+    {todo: "clone repo for starter code", status: "complete"},
+    {todo: "add css and js to index", status: "complete"},
+    {todo: "finish the app.js", status: "started"},
+    {todo: "finish the lab", status: "started"}
+]
+const completedTodos = []
 
-for (const key in todoList) {
-    todoArr.push(key, todoList[key])
-}
-
-for (const i in todoArr) {
-    if (todoArr[i] === "complete") {
-        completedTodos[todoArr[i-3]] = todoArr[i-2]
+for (const i in todoList) {
+    if (todoList[i].status === "complete") {
+        completedTodos.push(todoList[i])
     }
+}
 
+for (const i in completedTodos) {
+    const {todo} = completedTodos[i]
+    console.log(todo)
 }
-console.log(completedTodos)
-for (const key in completedTodos) {
-    console.log(completedTodos[key])
-}
+
